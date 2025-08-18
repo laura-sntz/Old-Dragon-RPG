@@ -1,4 +1,4 @@
-package org.example
+package org.example.distribuicao
 import kotlin.random.Random
 
 // Estilo Clássico - ordem fixa

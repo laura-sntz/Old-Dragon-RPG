@@ -1,27 +1,67 @@
 package org.example
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
+import org.example.atributos.Atributo
+import org.example.atributos.NomeAtributo
+import org.example.distribuicao.EstiloAventureiro
+import org.example.distribuicao.EstiloClassico
+import org.example.distribuicao.EstiloHeroico
+import org.example.distribuicao.MetodoDistribuicao
+import org.example.personagens.Personagem
+import org.example.personagens.racas.*
+import org.example.personagens.Raca
+
 fun main() {
     val scanner = java.util.Scanner(System.`in`)
 
-    println("Escolha o estilo de criação:")
-    println("1 - Clássico (ordem fixa)")
-    println("2 - Aventureiro (distribuição livre)")
-    println("3 - Heroico (distribuição livre)")
-    print("Opção: ")
+    // 1 - Nome do personagem
+    print("Digite o nome do personagem: ")
+    val nomePersonagem = readln()
 
-    val opcao = scanner.nextInt()
+    // 2 - Escolha da raça
+    val racaPersonagem: Raca
+    while (true) {
+        println("\nEscolha a raça do personagem:")
+        val racas = listOf("Humano", "Elfo", "Anão", "Halfling")
+        racas.forEachIndexed { index, raca -> println("${index + 1} - $raca") }
+        print("Opção: ")
+        val escolhaRaca = scanner.nextInt()
 
-    val estilo: MetodoDistribuicao = when (opcao) {
-        1 -> EstiloClassico()
-        2 -> EstiloAventureiro()
-        3 -> EstiloHeroico()
-        else -> {
-            println("Opção inválida. Usando Estilo Clássico.")
-            EstiloClassico()
+        racaPersonagem = when (escolhaRaca) {
+            1 -> Humano()
+            2 -> Elfo()
+            3 -> Anao()
+            4 -> Halfling()
+            else -> {
+                println("Opção inválida. Tente novamente.")
+                continue
+            }
         }
+        break
     }
 
+    // 3 - Escolha do estilo
+    val estilo: MetodoDistribuicao
+    while (true) {
+        println("\nEscolha o estilo de criação:")
+        println("1 - Clássico (ordem fixa)")
+        println("2 - Aventureiro (distribuição livre)")
+        println("3 - Heroico (distribuição livre)")
+        print("Opção: ")
+        val opcao = scanner.nextInt()
+
+        estilo = when (opcao) {
+            1 -> EstiloClassico()
+            2 -> EstiloAventureiro()
+            3 -> EstiloHeroico()
+            else -> {
+                println("Opção inválida. Tente novamente.")
+                continue
+            }
+        }
+        break
+    }
+
+    // 4 - Gerar atributos
     val valoresGerados = estilo.gerarAtributos()
     println("\nValores gerados: $valoresGerados")
 
@@ -34,7 +74,6 @@ fun main() {
         }
     } else {
         println("\nDistribua os valores nos atributos:")
-
         valoresGerados.forEach { valor ->
             println("\nValor atual: $valor")
             println("Atributos disponíveis:")
@@ -58,9 +97,7 @@ fun main() {
         }
     }
 
-    print("\nDigite o nome do personagem: ")
-    val nomePersonagem = readln()
-    val personagem = Personagem(nomePersonagem, atributos)
-
+    // 5 - Criar personagem
+    val personagem = Personagem(nomePersonagem, atributos, racaPersonagem)
     personagem.exibirFicha()
 }

@@ -1,4 +1,4 @@
-package org.example
+package org.example.atributos
 
 data class Atributo(
     val nome: NomeAtributo,
