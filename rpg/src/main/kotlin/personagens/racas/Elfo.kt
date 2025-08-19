@@ -1,7 +1,11 @@
 package org.example.personagens.racas
+
 import org.example.personagens.Raca
 
+/* elfos: visão no escuro, boa percepção e imunidades clássicas */
+
 class Elfo : Raca {
+
     override val nome = "Elfo"
     override val movimentoBase = 9
     override val infravisao: Int? = 18
@@ -12,4 +16,5 @@ class Elfo : Raca {
         "Arma Racial (+1 dano com arcos)",
         "Imunidade a Sono e Paralisia de Ghoul"
     )
+
 }

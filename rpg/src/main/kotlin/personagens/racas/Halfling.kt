@@ -1,7 +1,10 @@
 package org.example.personagens.racas
 import org.example.personagens.Raca
 
+/* halflings: furtivos e precisos, porém com restrições de equipamento */
+
 class Halfling : Raca {
+
     override val nome = "Halfling"
     override val movimentoBase = 6
     override val infravisao: Int? = null
@@ -13,4 +16,5 @@ class Halfling : Raca {
         "Pequenos (ataques de criaturas grandes ou maiores são difíceis)",
         "Restrições (somente armadura de couro feita sob medida; não podem usar armas grandes; armas médias contam como de duas mãos)"
     )
+
 }
