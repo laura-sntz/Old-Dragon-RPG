@@ -10,21 +10,20 @@ data class Atributo(
 
 ) {
 
-    /* modificador calculado conforme a tabela do old dragon 2 */
-    /* usamos 'when' para mapear faixas de valores em modificadores */
-
+    /* modificador calculado conforme a tabela do Old Dragon 2 */
     val modificador: Int
         get() = when (valor) {
             3 -> -3
-            in 4..5 -> -2
+            4, 5 -> -2
             in 6..8 -> -1
             in 9..12 -> 0
-            in 13..15 -> 1
-            in 16..17 -> 2
-            18 -> 3
-            else -> 0 // proteção caso valor esteja fora do intervalo esperado
+            13, 14 -> 1
+            15, 16 -> 2
+            17, 18 -> 3
+            19 -> 4
+            else -> 0 // fallback caso valor esteja fora do intervalo esperado
         }
 
-    override fun toString(): String = "${nome.sigla} (${nome.name}): $valor (Mod: $modificador)"
-
+    override fun toString(): String =
+        "${nome.sigla} (${nome.name}): $valor (Mod: $modificador)"
 }
