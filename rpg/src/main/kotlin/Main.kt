@@ -30,7 +30,7 @@ fun main() {
     println("\nValores gerados: $valores")
 
     // 6 - mapear os valores para os atributos
-    val atributos = distribuirAtributos(scanner, valores)
+    val atributos = distribuirAtributos(scanner, valores, metodo)
 
     // 7 - criar e exibir ficha
     val personagem = Personagem(nomePersonagem, atributos, racaPersonagem, classeEscolhida)
@@ -159,9 +159,9 @@ private fun escolherMetodo(scanner: java.util.Scanner): MetodoDistribuicao {
 }
 
 /* distribui os 6 valores gerados nos 6 atributos do jogo */
-/* para o modo "Clássico", a ordem default é [FOR, DES, CON, INT, SAB, CAR] */
-/* para os demais modos, o usuário escolhe a ordem manualmente */
-private fun distribuirAtributos(scanner: java.util.Scanner, valores: List<Int>): List<Atributo> {
+/* para o modo "Clássico", a ordem é fixa [FOR, DES, CON, INT, SAB, CAR] */
+/* para os modos "Aventureiro" e "Heróico", o usuário escolhe manualmente */
+private fun distribuirAtributos(scanner: java.util.Scanner, valores: List<Int>, metodo: MetodoDistribuicao): List<Atributo> {
     val ordemPadrao = listOf(
         NomeAtributo.FORCA,
         NomeAtributo.DESTREZA,
@@ -171,22 +171,20 @@ private fun distribuirAtributos(scanner: java.util.Scanner, valores: List<Int>):
         NomeAtributo.CARISMA
     )
 
-    println("\nDeseja distribuir manualmente os valores? (s/n) [n = ordem clássica FOR,DES,CON,INT,SAB,CAR]")
-    val manual = readLine()?.trim()?.lowercase() == "s"
-
-    val atribuicoes = mutableListOf<Atributo>()
-    val atributosDisponiveis = ordemPadrao.toMutableList()
-
-    if (!manual) {
-        // ordem clássica: valores[0] -> FOR, valores[1] -> DES, etc.
+    // Se for clássico → ordem fixa
+    if (metodo is EstiloClassico) {
+        val atribuicoes = mutableListOf<Atributo>()
         for (i in ordemPadrao.indices) {
             atribuicoes += Atributo(ordemPadrao[i], valores[i])
         }
         return atribuicoes
     }
 
-    // distribuição manual
+    // Se for aventureiro ou heróico → distribuição manual
+    val atribuicoes = mutableListOf<Atributo>()
+    val atributosDisponiveis = ordemPadrao.toMutableList()
     val valoresRestantes = valores.toMutableList()
+
     while (atributosDisponiveis.isNotEmpty()) {
         println("\nAtributos disponíveis:")
         atributosDisponiveis.forEachIndexed { i, a -> println("${i + 1} - ${a.name} (${a.sigla})") }

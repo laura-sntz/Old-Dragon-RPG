@@ -23,7 +23,4 @@ data class Atributo(
             19 -> 4
             else -> 0 // fallback caso valor esteja fora do intervalo esperado
         }
-
-    override fun toString(): String =
-        "${nome.sigla} (${nome.name}): $valor (Mod: $modificador)"
 }
