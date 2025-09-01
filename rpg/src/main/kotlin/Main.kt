@@ -4,9 +4,13 @@ import org.example.atributos.Atributo
 import org.example.atributos.NomeAtributo
 import org.example.distribuicao.*
 import org.example.personagens.Personagem
-import org.example.personagens.Raca
+import org.example.personagens.racas.Raca
 import org.example.personagens.racas.*
-import org.example.classes.*
+import org.example.classes.base.Classe
+import org.example.classes.implementacoes.Clerigo
+import org.example.classes.implementacoes.Guerreiro
+import org.example.classes.implementacoes.Ladrao
+import org.example.classes.implementacoes.Mago
 import org.example.classes.subclasses.*
 
 fun main() {

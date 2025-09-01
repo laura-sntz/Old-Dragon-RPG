@@ -1,11 +1,11 @@
 package org.example.classes.subclasses
-import org.example.classes.Classe
+import org.example.classes.implementacoes.Ladrao
 
-class Bardo : Classe {
+class Bardo : Ladrao() {
 
     override val nome = "Bardo"
-    override val conceito = "Artistas e cronistas errantes. Inspiram aliados e vivem de astúcia e performance."
-    override val habilidades = listOf("Inspiração", "Performance", "Lábia e Histórias")
+    override val descricao = "Artistas e cronistas errantes. Inspiram aliados e vivem de astúcia e performance."
+    override val habilidades = super.habilidades + listOf("Inspiração", "Performance", "Lábia e Histórias")
     override val subclasses = emptyList<String>()
 
 }

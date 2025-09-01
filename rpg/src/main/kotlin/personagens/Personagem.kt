@@ -1,6 +1,7 @@
 package org.example.personagens
 import org.example.atributos.Atributo
-import org.example.classes.Classe
+import org.example.classes.base.Classe
+import org.example.personagens.racas.Raca
 
 /* agrega os elementos de um Personagem: nome, atributos, raça e classe */
 
@@ -31,7 +32,7 @@ class Personagem(
             else -> classe.nome // classe base
         }
         println("Classe: $classeLinha")
-        println("Conceito da Classe: ${classe.conceito}")
+        println("Conceito da Classe: ${classe.descricao}")
 
         println("Movimento: ${raca.movimentoBase} m")
         val infravisaoStr = raca.infravisao?.toString() ?: "Nenhuma"
