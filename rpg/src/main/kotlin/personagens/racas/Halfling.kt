@@ -1,4 +1,4 @@
-package org.example.personagens.racas
+package personagens.racas
 
 /* halflings: furtivos e precisos, porém com restrições de equipamento */
 
