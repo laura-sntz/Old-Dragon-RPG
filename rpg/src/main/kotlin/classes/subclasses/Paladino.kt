@@ -1,11 +1,10 @@
 package org.example.classes.subclasses
-import org.example.classes.Classe
+import org.example.classes.implementacoes.Guerreiro
 
-class Paladino : Classe {
+class Paladino : Guerreiro() {
 
     override val nome = "Paladino"
-    override val conceito = "Guerreiros sagrados que mantêm Aparar e Maestria em Arma."
-    override val habilidades = listOf("Aparar", "Maestria em Arma", "Aura Sagrada")
+    override val descricao = "Guerreiros sagrados que mantêm Aparar e Maestria em Arma."
+    override val habilidades = super.habilidades + "Aura Sagrada"
     override val subclasses: List<String> = emptyList()
-
 }

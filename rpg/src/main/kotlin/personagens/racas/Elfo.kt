@@ -1,6 +1,4 @@
-package org.example.personagens.racas
-
-import org.example.personagens.Raca
+package personagens.racas
 
 /* elfos: visão no escuro, boa percepção e imunidades clássicas */
 

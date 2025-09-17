@@ -1,5 +1,6 @@
 package org.example.personagens.racas
-import org.example.personagens.Raca
+
+import personagens.racas.Raca
 
 /* anões: robustos, bons em pedra e resistentes */
 

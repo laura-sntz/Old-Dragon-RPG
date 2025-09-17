@@ -1,4 +1,4 @@
-package org.example.distribuicao
+package distribuicao
 
 /* contrato para os diferentes estilos de distribuição de atributos */
 /* cada implementação deve gerar 6 valores de atributos */

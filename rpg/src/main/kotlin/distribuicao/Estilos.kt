@@ -1,4 +1,4 @@
-package org.example.distribuicao
+package distribuicao
 import kotlin.random.Random
 
 // funções utilitárias de rolagem

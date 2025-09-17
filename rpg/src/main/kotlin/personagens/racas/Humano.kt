@@ -1,6 +1,4 @@
-package org.example.personagens.racas
-
-import org.example.personagens.Raca
+package personagens.racas
 
 /* humanos: adaptáveis, sem infravisão, movimento mais alto */
 
